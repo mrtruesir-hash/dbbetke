@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DBBet Kenya — Aviator, Football Betting & Casino | KES Welcome Bonus</title>
+<meta name="description" content="Play Aviator, bet on the Premier League and enjoy casino games on DBBet Kenya. Register, deposit instantly with M-Pesa and claim your welcome bonus.">
+<!--
+  ============================================================================
+  DBBet KENYA — homepage mockup (SIO). Original layout in the DBBet brand skin.
+  PLACEHOLDERS TO REPLACE (marked in-page):
+   • REGISTER_URL  -> real DBBet registration/deposit link (the "money link", tracked)
+   • Welcome bonus amount "KES 20,000"  -> real Kenya offer
+   • Promo code "DBKEN"  -> real code
+   • License line in footer  -> real licensing details (or remove)
+   • All .img-slot boxes  -> real images you upload later (dimensions suggested on each)
+   • Logo: recreated as text wordmark; swap for logo.webp if preferred
+  ============================================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#121212; --surface:#1a1a1a; --surface-2:#242424;
+    --accent:#ff335c; --accent-hover:#ff4d72; --accent-soft:rgba(255,51,92,.14);
+    --text:#ffffff; --muted:#a3a3a3; --secondary:#2b2b2b; --secondary-hover:#383838;
+    --border:rgba(255,255,255,.09); --border-accent:rgba(255,51,92,.35);
+    --radius:12px; --radius-lg:18px; --maxw:1180px;
+    --font:'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--text); font-family:var(--font);
+    font-weight:400; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none}
+  img{max-width:100%; display:block}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+  h1,h2,h3{margin:0; font-weight:800; line-height:1.1; text-wrap:balance}
+  .eyebrow{
+    display:inline-block; font-size:12px; font-weight:700; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:16px;
+  }
+  .muted{color:var(--muted)}
+  .accent{color:var(--accent)}
+
+  /* buttons */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:9px;
+    font-family:var(--font); font-weight:800; font-size:15px; letter-spacing:.01em;
+    padding:14px 26px; border-radius:var(--radius); border:0; cursor:pointer;
+    transition:transform .15s ease, background .15s ease; white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent); color:#fff}
+  .btn-primary:hover{background:var(--accent-hover); transform:translateY(-2px)}
+  .btn-ghost{background:var(--secondary); color:#fff}
+  .btn-ghost:hover{background:var(--secondary-hover)}
+  .btn-lg{padding:17px 34px; font-size:16px}
+
+  /* header */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(18,18,18,.82);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex; align-items:center; gap:26px; height:66px}
+  .logo{font-weight:800; font-size:25px; letter-spacing:-.02em; font-style:italic}
+  .logo .db{color:var(--accent)} .logo .bet{color:#fff}
+  .nav-links{display:flex; gap:24px; margin-left:14px}
+  .nav-links a{color:var(--muted); font-weight:600; font-size:15px; transition:color .15s}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{margin-left:auto; display:flex; gap:10px; align-items:center}
+
+  /* hero */
+  .hero{position:relative; overflow:hidden; padding:70px 0 40px}
+  .hero::before{
+    content:""; position:absolute; top:-260px; right:-140px; width:620px; height:620px;
+    background:radial-gradient(circle, rgba(255,51,92,.28), transparent 62%); pointer-events:none;
+  }
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:44px; align-items:center; position:relative}
+  .hero h1{font-size:clamp(34px,5vw,56px)}
+  .hero h1 .u{position:relative; white-space:nowrap}
+  .hero h1 .u::after{
+    content:""; position:absolute; left:0; right:0; bottom:6px; height:12px;
+    background:var(--accent-soft); transform:skewX(-12deg); z-index:-1;
+  }
+  .hero p.lead{font-size:18px; color:var(--muted); margin:22px 0 30px; max-width:33ch}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
+
+  /* promo strip under hero cta */
+  .promo{
+    margin-top:26px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:14px 16px; max-width:440px;
+  }
+  .promo .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted)}
+  .promo code{
+    font-family:var(--font); font-weight:800; letter-spacing:.08em; color:var(--accent);
+    background:var(--accent-soft); padding:7px 12px; border-radius:8px; font-size:15px;
+  }
+  .copy-btn{margin-left:auto; background:var(--secondary); color:#fff; border:0; border-radius:8px;
+    padding:8px 14px; font-family:var(--font); font-weight:700; font-size:13px; cursor:pointer}
+  .copy-btn:hover{background:var(--secondary-hover)}
+
+  /* image slot */
+  .img-slot{
+    border:2px dashed var(--border-accent); border-radius:var(--radius-lg);
+    background:
+      repeating-linear-gradient(45deg, rgba(255,51,92,.04) 0 12px, transparent 12px 24px),
+      var(--surface);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; color:var(--muted); gap:6px; padding:24px;
+  }
+  .img-slot .ico{font-size:26px; opacity:.7}
+  .img-slot .t{font-weight:700; color:#cfcfcf; font-size:14px}
+  .img-slot .d{font-size:12px; letter-spacing:.04em}
+  .hero-visual{aspect-ratio:4/5; min-height:340px}
+
+  /* stat bar */
+  .stats{border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--surface)}
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border)}
+  .stat{background:var(--surface); padding:26px 22px; text-align:center}
+  .stat .n{font-weight:800; font-size:22px; color:var(--accent)}
+  .stat .l{font-size:13px; color:var(--muted); margin-top:4px}
+
+  /* generic section */
+  .section{padding:64px 0}
+  .section-head{max-width:640px; margin-bottom:36px}
+  .section-head h2{font-size:clamp(26px,3.4vw,36px)}
+  .section-head p{color:var(--muted); margin-top:12px; font-size:16px}
+
+  /* feature cards */
+  .cards-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  .fcard{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:24px; transition:transform .15s ease, border-color .15s ease;
+  }
+  .fcard:hover{transform:translateY(-4px); border-color:var(--border-accent)}
+  .fcard .ic{width:46px; height:46px; border-radius:12px; background:var(--accent-soft);
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px}
+  .fcard .ic svg{width:24px; height:24px; stroke:var(--accent); fill:none; stroke-width:2}
+  .fcard h3{font-size:17px; margin-bottom:7px}
+  .fcard p{color:var(--muted); font-size:14px; margin:0}
+
+  /* aviator spotlight */
+  .spot{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:38px}
+  .spot h2{font-size:clamp(24px,3vw,34px)}
+  .spot p{color:var(--muted); margin:16px 0 24px}
+  .aviator-art{position:relative; aspect-ratio:16/10; border-radius:var(--radius); overflow:hidden;
+    background:radial-gradient(120% 120% at 10% 90%, #2a1016, #141018 70%); border:1px solid var(--border)}
+  .aviator-art svg{position:absolute; inset:0; width:100%; height:100%}
+  .aviator-art .mult{position:absolute; top:18px; left:22px; font-weight:800; font-size:34px;
+    color:#fff; text-shadow:0 2px 20px rgba(255,51,92,.6)}
+  .aviator-art .mult span{color:var(--accent)}
+
+  /* steps */
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; counter-reset:s}
+  .step{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px; position:relative}
+  .step::before{counter-increment:s; content:counter(s); position:absolute; top:18px; right:20px;
+    font-weight:800; font-size:30px; color:var(--accent-soft)}
+  .step h3{font-size:16px; margin-bottom:6px}
+  .step p{color:var(--muted); font-size:14px; margin:0}
+  .pay-logos{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
+  .pay-slot{width:120px; height:52px; font-size:11px}
+
+  /* predictions */
+  .pred-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .pred{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:20px}
+  .pred .lg{font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted)}
+  .pred .teams{display:flex; align-items:center; gap:12px; margin:14px 0}
+  .crest{width:34px; height:34px; border-radius:50%; background:var(--surface-2);
+    border:1px dashed var(--border-accent); flex:0 0 auto; display:flex; align-items:center; justify-content:center;
+    font-size:9px; color:var(--muted); text-align:center; line-height:1}
+  .pred .teams .vs{color:var(--muted); font-weight:700; font-size:13px}
+  .pred .tip{font-weight:700; font-size:15px}
+  .pred .odds{margin-left:auto; font-variant-numeric:tabular-nums; font-weight:800; color:var(--accent)}
+  .pred .row{display:flex; align-items:center; gap:10px}
+
+  /* casino */
+  .casino-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  .game-slot{aspect-ratio:1/1; font-size:12px}
+
+  /* app */
+  .app{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center}
+  .app-badges{display:flex; gap:14px; margin-top:24px; flex-wrap:wrap}
+  .badge-slot{width:150px; height:52px; font-size:11px}
+
+  /* faq */
+  .faq{max-width:820px}
+  .qa{border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); margin-bottom:12px; overflow:hidden}
+  .qa summary{list-style:none; cursor:pointer; padding:18px 20px; font-weight:700; font-size:16px;
+    display:flex; justify-content:space-between; align-items:center; gap:14px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary::after{content:"+"; color:var(--accent); font-size:22px; font-weight:800; transition:transform .2s}
+  .qa[open] summary::after{transform:rotate(45deg)}
+  .qa .a{padding:0 20px 18px; color:var(--muted); font-size:15px}
+
+  /* cta banner */
+  .cta-banner{background:linear-gradient(120deg, #ff335c, #b3164a); border-radius:var(--radius-lg);
+    padding:46px 34px; text-align:center}
+  .cta-banner h2{font-size:clamp(24px,3vw,32px); color:#fff}
+  .cta-banner p{color:rgba(255,255,255,.9); margin:12px 0 24px; font-size:16px}
+  .cta-banner .btn-primary{background:#fff; color:#b3164a}
+  .cta-banner .btn-primary:hover{background:#fff; opacity:.92}
+
+  /* footer */
+  footer{background:var(--surface); border-top:1px solid var(--border); padding:48px 0 30px; margin-top:20px}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px; margin-bottom:30px}
+  .foot-grid h4{font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:#fff; margin:0 0 14px}
+  .foot-grid a{display:block; color:var(--muted); font-size:14px; padding:5px 0}
+  .foot-grid a:hover{color:#fff}
+  .rg{display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:18px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+  .age{flex:0 0 auto; width:42px; height:42px; border-radius:50%; border:2px solid var(--accent); color:var(--accent);
+    font-weight:800; display:flex; align-items:center; justify-content:center; font-size:15px}
+  .rg p{margin:0; color:var(--muted); font-size:13px}
+  .legal{color:var(--muted); font-size:12.5px; margin-top:20px; line-height:1.7}
+  .legal .ph{color:var(--accent)}
+
+  @media (max-width:900px){
+    .hero-grid,.spot,.app{grid-template-columns:1fr}
+    .hero-visual{order:-1; aspect-ratio:16/10; min-height:220px}
+    .cards-4{grid-template-columns:repeat(2,1fr)}
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .pred-grid{grid-template-columns:1fr}
+    .casino-grid{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+  }
+  @media (max-width:480px){
+    .cards-4,.casino-grid{grid-template-columns:1fr}
+    .promo{max-width:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <!-- LOGO: text wordmark (swap for logo.webp if preferred) -->
+    <a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213" class="logo" aria-label="DBBet Kenya home"><span class="db">DB</span><span class="bet">bet</span></a>
+    <nav class="nav-links">
+      <a href="#aviator">Aviator</a>
+      <a href="#sports">Sports</a>
+      <a href="#predictions">Predictions</a>
+      <a href="#deposit">M-Pesa</a>
+      <a href="#app">App</a>
+    </nav>
+    <div class="nav-cta">
+      <!-- REGISTER_URL placeholder -->
+      <a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213" class="btn btn-ghost">Log in</a>
+      <a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213" class="btn btn-primary">Register</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Official DBBet Kenya</span>
+      <h1>Play <span class="u accent">Aviator</span>, bet on football &amp; win with DBBet Kenya</h1>
+      <p class="lead">Register in under a minute, deposit instantly with M-Pesa, and claim <strong>100% up to KES&nbsp;14,803</strong> on your first deposit.</p>
+      <div class="hero-cta">
+        <a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213" class="btn btn-primary btn-lg">Register &amp; claim bonus</a>
+        <a href="#app" class="btn btn-ghost btn-lg">Get the app</a>
+      </div>
+      <div class="promo">
+        <span class="lbl">M-Pesa deposit</span>
+        <code id="promo">+30% BONUS</code>
+        <span class="muted" style="font-size:13px">Deposit via M-Pesa Fast &amp; get an extra 30%</span>
+      </div>
+    </div>
+    <!-- IMAGE SLOT: hero visual (app screenshot / phone mockup / brand key visual) -->
+    <div class="img-slot hero-visual">
+      <span class="ico">🖼️</span>
+      <span class="t">Hero image</span>
+      <span class="d">app / phone mockup · ~720×900px (portrait)</span>
+    </div>
+  </div>
+</section>
+
+<!-- STAT / TRUST BAR -->
+<section class="stats">
+  <div class="wrap"><div class="stats-grid">
+    <div class="stat"><div class="n">100% up to KES 14,803</div><div class="l">Sports welcome bonus</div></div>
+    <div class="stat"><div class="n">M-Pesa +30%</div><div class="l">Top-up bonus · from KES 30</div></div>
+    <div class="stat"><div class="n">Aviator</div><div class="l">+ 500 slots &amp; live casino</div></div>
+    <div class="stat"><div class="n">KES 222,105</div><div class="l">Casino package + 150 free spins</div></div>
+  </div></div>
+</section>
+
+<!-- FEATURE CARDS -->
+<section class="section"><div class="wrap">
+  <div class="cards-4">
+    <div class="fcard">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5z"/><path d="M9 18h6"/></svg></div>
+      <h3>Mobile app</h3><p>Fast Android APK &amp; iPhone access for betting on the go.</p>
+    </div>
+    <div class="fcard">
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <h3>Quick registration</h3><p>Open an account with your phone number in seconds.</p>
+    </div>
+    <div class="fcard">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+      <h3>M-Pesa +30%</h3><p>Deposit with M-Pesa Fast and get an extra <b style="color:var(--accent)">30% bonus</b>.</p>
+    </div>
+    <div class="fcard">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 20l7-7 4 4 7-9"/><path d="M21 8v4h-4"/></svg></div>
+      <h3>Aviator &amp; crash</h3><p>Cash out before the plane flies away. Instant wins.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- AVIATOR SPOTLIGHT -->
+<section class="section" id="aviator" style="padding-top:0"><div class="wrap">
+  <div class="spot">
+    <div>
+      <span class="eyebrow">Kenya's favourite game</span>
+      <h2>Aviator on DBBet</h2>
+      <p>Watch the multiplier climb and cash out before it crashes. Aviator is the fastest, most-played game in Kenya — and it runs smoothly on DBBet with M-Pesa deposits from as little as KES&nbsp;10.</p>
+      <a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213" class="btn btn-primary">Play Aviator now</a>
+    </div>
+    <!-- Subject-grounded motif: the Aviator multiplier curve (decorative, drawn) -->
+    <div class="aviator-art" aria-hidden="true">
+      <div class="mult">2.48<span>×</span></div>
+      <svg viewBox="0 0 400 250" preserveAspectRatio="none">
+        <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff335c" stop-opacity="0"/><stop offset="1" stop-color="#ff335c"/>
+        </linearGradient></defs>
+        <path d="M0,240 C120,235 250,200 400,20" fill="none" stroke="url(#g)" stroke-width="4"/>
+        <path d="M0,240 C120,235 250,200 400,20 L400,250 L0,250 Z" fill="rgba(255,51,92,.10)"/>
+        <circle cx="400" cy="20" r="5" fill="#fff"/>
+      </svg>
+    </div>
+  </div>
+</div></section>
+
+<!-- M-PESA DEPOSIT STEPS -->
+<section class="section" id="deposit" style="padding-top:0"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Deposits &amp; withdrawals</span>
+    <h2>Fund your account with M-Pesa in seconds</h2>
+    <p>No bank account needed. Deposit and withdraw straight from your phone — the way Kenya bets.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><h3>Register</h3><p>Sign up with your Safaricom number.</p></div>
+    <div class="step"><h3>Go to deposit</h3><p>Pick M-Pesa and enter the amount.</p></div>
+    <div class="step"><h3>Confirm on phone</h3><p>Approve the STK push with your PIN.</p></div>
+    <div class="step"><h3>Start playing</h3><p>Funds land instantly. Bet or play Aviator.</p></div>
+  </div>
+  <div class="pay-logos">
+    <!-- IMAGE SLOTS: payment method logos -->
+    <div class="img-slot pay-slot"><span class="t">M-Pesa logo</span><span class="d">120×52</span></div>
+    <div class="img-slot pay-slot"><span class="t">Airtel Money</span><span class="d">120×52</span></div>
+    <div class="img-slot pay-slot"><span class="t">Add logo</span><span class="d">120×52</span></div>
+  </div>
+</div></section>
+
+<!-- FOOTBALL PREDICTIONS -->
+<section class="section" id="predictions" style="padding-top:0"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Free tips</span>
+    <h2>Today's football predictions</h2>
+    <p>Premier League and local picks from our tipsters. Odds shown are indicative — updated daily.</p>
+  </div>
+  <div class="pred-grid">
+    <div class="pred">
+      <div class="lg">Premier League</div>
+      <div class="teams"><span class="crest">HOME</span><span class="vs">vs</span><span class="crest">AWAY</span></div>
+      <div class="row"><span class="tip">Tip: Over 2.5 goals</span><span class="odds">1.85</span></div>
+    </div>
+    <div class="pred">
+      <div class="lg">Premier League</div>
+      <div class="teams"><span class="crest">HOME</span><span class="vs">vs</span><span class="crest">AWAY</span></div>
+      <div class="row"><span class="tip">Tip: Home win &amp; BTTS</span><span class="odds">3.40</span></div>
+    </div>
+    <div class="pred">
+      <div class="lg">FKF Premier League</div>
+      <div class="teams"><span class="crest">HOME</span><span class="vs">vs</span><span class="crest">AWAY</span></div>
+      <div class="row"><span class="tip">Tip: Draw no bet</span><span class="odds">2.10</span></div>
+    </div>
+  </div>
+  <div style="margin-top:24px"><a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213" class="btn btn-ghost">See all predictions</a></div>
+</div></section>
+
+<!-- SPORTS + CASINO -->
+<section class="section" id="sports" style="padding-top:0"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Betting &amp; games</span>
+    <h2>Everything to bet on, in one place</h2>
+    <p>From the Premier League to Aviator, live casino to virtuals — DBBet covers it.</p>
+  </div>
+  <div class="casino-grid">
+    <!-- IMAGE SLOTS: game / category thumbnails -->
+    <div class="img-slot game-slot"><span class="ico">⚽</span><span class="t">Football</span><span class="d">600×600</span></div>
+    <div class="img-slot game-slot"><span class="ico">✈️</span><span class="t">Aviator</span><span class="d">600×600</span></div>
+    <div class="img-slot game-slot"><span class="ico">🎰</span><span class="t">Casino / slots</span><span class="d">600×600</span></div>
+    <div class="img-slot game-slot"><span class="ico">🎮</span><span class="t">Live &amp; virtuals</span><span class="d">600×600</span></div>
+  </div>
+</div></section>
+
+<!-- APP -->
+<section class="section" id="app" style="padding-top:0"><div class="wrap">
+  <div class="app">
+    <div>
+      <span class="eyebrow">DBBet app</span>
+      <h2 style="font-size:clamp(24px,3vw,34px)">Bet anywhere with the DBBet app</h2>
+      <p class="muted" style="margin-top:16px">Download the Android APK or add DBBet to your iPhone home screen. Lightweight, fast, and built for M-Pesa deposits.</p>
+      <div class="app-badges">
+        <!-- IMAGE SLOTS: store badges / QR -->
+        <div class="img-slot badge-slot"><span class="t">Android APK</span><span class="d">150×52</span></div>
+        <div class="img-slot badge-slot"><span class="t">iPhone badge</span><span class="d">150×52</span></div>
+      </div>
+    </div>
+    <!-- IMAGE SLOT: app screenshot -->
+    <div class="img-slot" style="aspect-ratio:16/11">
+      <span class="ico">📱</span><span class="t">App screenshot</span><span class="d">~1000×700</span>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Good to know</span><h2>Frequently asked questions</h2></div>
+  <div class="faq">
+    <details class="qa" open><summary>How do I register on DBBet Kenya?</summary>
+      <div class="a">Tap Register, enter your phone number, set a password, and use promo code DBKEN to boost your first-deposit bonus. It takes under a minute.</div></details>
+    <details class="qa"><summary>Can I deposit with M-Pesa?</summary>
+      <div class="a">Yes. M-Pesa is the main deposit and withdrawal method. Choose M-Pesa, enter the amount, and confirm the STK push with your PIN — funds arrive instantly.</div></details>
+    <details class="qa"><summary>What is the welcome bonus?</summary>
+      <div class="a">New players get a 100% sports welcome bonus up to KES 14,803 on the first deposit, or a casino welcome package up to KES 222,105 + 150 free spins. Deposit via M-Pesa Fast to add another 30%. Bonuses are credited automatically after you deposit.</div></details>
+    <details class="qa"><summary>Is Aviator available?</summary>
+      <div class="a">Yes — Aviator and other crash games are available, with instant cash-out. You can start from the KES 30 minimum M-Pesa deposit.</div></details>
+    <details class="qa"><summary>Is there a mobile app?</summary>
+      <div class="a">Yes. Download the Android APK or add DBBet to your iPhone home screen from the app section above.</div></details>
+  </div>
+</div></section>
+
+<!-- CTA BANNER -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="cta-banner">
+    <h2>Ready to play? Join DBBet Kenya</h2>
+    <p>Register, deposit with M-Pesa from KES 30, and claim 100% up to KES 14,803 — plus 30% extra on M-Pesa.</p>
+    <a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213" class="btn btn-primary btn-lg">Create your account</a>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213" class="logo" style="font-size:23px"><span class="db">DB</span><span class="bet">bet</span></a>
+        <p class="muted" style="font-size:14px; margin-top:14px; max-width:32ch">DBBet Kenya — sports betting, Aviator and casino, built for mobile and M-Pesa.</p>
+      </div>
+      <div><h4>Betting</h4><a href="#sports">Sports</a><a href="#aviator">Aviator</a><a href="#predictions">Predictions</a><a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213">Casino</a></div>
+      <div><h4>Account</h4><a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213">Register</a><a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213">Log in</a><a href="#deposit">Deposit (M-Pesa)</a><a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213">Withdraw</a></div>
+      <div><h4>Help</h4><a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213">How to bet</a><a href="#app">Get the app</a><a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213">Contact support</a><a href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213">Responsible gaming</a></div>
+    </div>
+    <div class="rg">
+      <span class="age">18+</span>
+      <p>Gambling can be addictive. Play responsibly. You must be 18 or older to register. If gambling is affecting you, seek help.</p>
+    </div>
+    <p class="legal">
+      *Welcome bonus amount and promo code are <span class="ph">placeholders</span> — replace with the confirmed Kenya offer.
+      Licensing &amp; regulatory details: <span class="ph">[add license line or remove]</span>.
+      © <span id="yr"></span> DBBet Kenya. All rights reserved. Terms &amp; conditions apply.
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var cb = document.getElementById('copyBtn');
+  if (cb) cb.addEventListener('click', function(){
+    var code = document.getElementById('promo').textContent.trim();
+    navigator.clipboard && navigator.clipboard.writeText(code);
+    var t = cb.textContent; cb.textContent = 'Copied'; setTimeout(function(){cb.textContent = t;}, 1400);
+  });
+</script>
+</body>
+</html>
