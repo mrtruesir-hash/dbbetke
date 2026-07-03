@@ -35,6 +35,16 @@ header{position:sticky; top:0; z-index:50; background:rgba(18,18,18,.82); backdr
 .nav-links a{color:var(--muted); font-weight:600; font-size:15px; transition:color .15s}
 .nav-links a:hover,.nav-links a.active{color:#fff}
 .nav-cta{margin-left:auto; display:flex; gap:10px; align-items:center}
+.menu-toggle{display:none; margin-left:auto; background:transparent; border:0; cursor:pointer; padding:10px; flex-direction:column; gap:5px}
+.menu-toggle span{display:block; width:24px; height:2px; background:#fff; border-radius:2px; transition:transform .25s, opacity .25s}
+.menu-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle.is-open span:nth-child(2){opacity:0}
+.menu-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none; border-top:1px solid var(--border); background:var(--surface); padding:12px 22px 20px}
+.mobile-menu a{display:block; color:var(--text); font-weight:600; font-size:16px; padding:13px 0; border-bottom:1px solid var(--border)}
+.mobile-menu a:last-of-type{border-bottom:0}
+.mobile-menu .mm-cta{display:flex; gap:10px; margin-top:16px}
+.mobile-menu .mm-cta .btn{flex:1}
 
 /* page intro (inner pages) */
 .page-intro{padding:56px 0 10px; position:relative; overflow:hidden}
@@ -196,6 +206,9 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
   .logo-grid{grid-template-columns:repeat(3,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
+  .nav-cta{display:none}
+  .menu-toggle{display:flex}
+  header.menu-open .mobile-menu{display:block}
 }
 @media (max-width:480px){
   .cards-4,.cards-3,.cards-2,.casino-grid,.tiles,.shot-grid{grid-template-columns:1fr}
