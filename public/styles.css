@@ -142,6 +142,10 @@ header{position:sticky; top:0; z-index:50; background:rgba(18,18,18,.82); backdr
 .stepshot img{width:184px; max-width:100%; height:auto; margin:0 auto; display:block; border-radius:14px}
 .stepshot p{color:var(--muted); font-size:14px; margin:14px auto 0; max-width:26ch}
 .ios-shot{display:block; width:100%; max-width:920px; height:auto; margin:10px auto 0}
+.screens{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:720px}
+.screens figure{margin:0}
+.screens img{width:100%; height:auto; border-radius:14px; border:1px solid var(--border); display:block}
+.screens figcaption{color:var(--muted); font-size:13px; text-align:center; margin-top:10px}
 @media(max-width:900px){.stepshots{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.stepshots{grid-template-columns:1fr}}
 
