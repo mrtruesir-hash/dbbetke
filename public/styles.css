@@ -144,7 +144,7 @@ header{position:sticky; top:0; z-index:50; background:rgba(18,18,18,.82); backdr
 .ios-shot{display:block; width:100%; max-width:920px; height:auto; margin:10px auto 0}
 .screens{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:720px}
 .screens figure{margin:0}
-.screens img{width:100%; aspect-ratio:480/825; object-fit:cover; object-position:center top; border-radius:14px; border:1px solid var(--border); display:block}
+.screens img{width:100%; height:auto; border-radius:14px; border:1px solid var(--border); display:block}
 .screens figcaption{color:var(--muted); font-size:13px; text-align:center; margin-top:10px}
 @media(max-width:900px){.stepshots{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.stepshots{grid-template-columns:1fr}}
