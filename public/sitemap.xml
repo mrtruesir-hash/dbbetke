@@ -5,5 +5,14 @@
   <url><loc>https://dbbetke.com/bonuses/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://dbbetke.com/betting/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://dbbetke.com/casino/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dbbetke.com/promo-code/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dbbetke.com/how-to-bet/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dbbetke.com/betting-tax/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dbbetke.com/blog/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dbbetke.com/about/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dbbetke.com/contact/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dbbetke.com/responsible-gaming/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dbbetke.com/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dbbetke.com/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dbbetke.com/cookies/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

@@ -215,8 +215,16 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
 .rg{display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:18px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
 .age{flex:0 0 auto; width:42px; height:42px; border-radius:50%; border:2px solid var(--accent); color:var(--accent); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:15px}
 .rg p{margin:0; color:var(--muted); font-size:13px}
-.legal{color:var(--muted); font-size:12.5px; margin-top:20px; line-height:1.7}
+.ph{color:var(--accent); font-style:italic}
+.foot-legal{display:flex; flex-wrap:wrap; gap:6px 20px; padding:16px 0 2px}
+.foot-legal a{color:var(--muted); font-size:13px}
+.foot-legal a:hover{color:#fff}
+.legal{color:var(--muted); font-size:12.5px; margin-top:14px; line-height:1.7}
 .legal .ph{color:var(--accent)}
+
+/* inline notice / disclaimer box (prose) */
+.prose .notice{background:var(--accent-soft); border:1px solid var(--border-accent); border-radius:var(--radius); padding:16px 18px; margin:0 0 22px; color:var(--text); font-size:14.5px; line-height:1.65}
+.prose .notice .ph{color:var(--accent)}
 
 @media (max-width:900px){
   .hero-grid,.spot,.app{grid-template-columns:1fr}
