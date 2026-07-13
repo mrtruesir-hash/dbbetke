@@ -247,3 +247,7 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
   .promo{max-width:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto}}
+
+/* brand image icons in nav tiles (replace emoji) */
+.tile .ic-img{font-size:0;line-height:0;margin-bottom:14px}
+.tile .ic-img img{display:block}
