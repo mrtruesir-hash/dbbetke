@@ -46,44 +46,32 @@ export default {
 
 /* ----------------------------- OAuth2 token ----------------------------- */
 
-async function getAccessToken(env) {
-  const now = Date.now();
-  if (tokenCache && tokenCache.expEpochMs - 60_000 > now) {
-    return tokenCache.token;
-  }
-
-  const clientId = env.MARKETING_CLIENT_ID;
+async function getAccessToken(env, clientIdOverride) {
+  const clientId = clientIdOverride || env.MARKETING_CLIENT_ID;
   const clientSecret = env.MARKETING_CLIENT_SECRET;
   if (!clientId || !clientSecret) {
     throw new ApiError("not_configured", 503,
       "MARKETING_CLIENT_ID / MARKETING_CLIENT_SECRET secret is not set");
   }
 
-  const body = new URLSearchParams({ grant_type: "client_credentials" });
-
-  // Try client_secret_post first (credentials in the body).
-  let res = await fetch(TOKEN_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json" },
-    body: new URLSearchParams({ ...Object.fromEntries(body), client_id: clientId, client_secret: clientSecret }),
-  });
-
-  // Fall back to HTTP Basic (client_secret_basic) if the server rejects it.
-  if (res.status === 400 || res.status === 401) {
-    res = await fetch(TOKEN_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Accept: "application/json",
-        Authorization: "Basic " + btoa(`${clientId}:${clientSecret}`),
-      },
-      body,
-    });
+  const now = Date.now();
+  if (!clientIdOverride && tokenCache && tokenCache.id === clientId && tokenCache.expEpochMs - 60_000 > now) {
+    return tokenCache.token;
   }
 
+  // OAuth2 client_credentials, client_secret_post (credentials in the form body).
+  const res = await fetch(TOKEN_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json" },
+    body: new URLSearchParams({
+      grant_type: "client_credentials",
+      client_id: clientId,
+      client_secret: clientSecret,
+    }),
+  });
+
   if (!res.ok) {
-    const text = await safeText(res);
-    throw new ApiError("token_failed", 502, `Token endpoint ${res.status}: ${text}`);
+    throw new ApiError("token_failed", 502, `Token endpoint ${res.status}: ${await safeText(res)}`);
   }
 
   const data = await res.json();
@@ -91,7 +79,7 @@ async function getAccessToken(env) {
   const expiresInSec = Number(data.expires_in) || 300;
   if (!token) throw new ApiError("token_failed", 502, "No access_token in token response");
 
-  tokenCache = { token, expEpochMs: now + expiresInSec * 1000 };
+  if (!clientIdOverride) tokenCache = { id: clientId, token, expEpochMs: now + expiresInSec * 1000 };
   return token;
 }
 
@@ -124,7 +112,8 @@ async function handleOdds(request, url, env, ctx) {
 
   let payload, status = 200;
   try {
-    const token = await getAccessToken(env);
+    // ?cid=<value> overrides the client_id for that request (credential testing).
+    const token = await getAccessToken(env, url.searchParams.get("cid"));
 
     // Debug: /api/odds?raw=1&feed=live|prematch returns the upstream JSON verbatim.
     if (url.searchParams.get("raw") === "1") {
