@@ -45,4 +45,21 @@
     });
     panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
   }
+
+  // Sticky mobile registration CTA — built once here, shown on mobile via CSS.
+  // (On mobile the header Register button is hidden behind the menu, so this
+  // keeps a one-tap registration path visible at all times.)
+  var reg = document.querySelector('header .nav-cta a.btn-primary')
+    || document.querySelector('a.btn-primary[href*="refpa"]');
+  if (reg && !document.querySelector('.sticky-cta')) {
+    var bar = document.createElement('div');
+    bar.className = 'sticky-cta';
+    bar.innerHTML =
+      '<div class="sc-text">' +
+        '<span class="sc-lbl">Welcome bonus</span>' +
+        '<span class="sc-bonus">100% up to <b>KES 14,803</b></span>' +
+      '</div>' +
+      '<a class="btn btn-primary sc-btn" href="' + reg.getAttribute('href') + '">Register</a>';
+    document.body.appendChild(bar);
+  }
 })();

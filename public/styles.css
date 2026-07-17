@@ -315,3 +315,18 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
   .live-strip-head span:not(.live-dot),.live-mini .lm-cta,.live-strip-all{display:none}
   .live-strip-head{gap:0}
 }
+
+/* ---- sticky mobile registration CTA ---- */
+.sticky-cta{position:fixed; left:0; right:0; bottom:0; z-index:200; display:none; align-items:center; gap:14px;
+  padding:9px 16px; padding-bottom:calc(9px + env(safe-area-inset-bottom));
+  background:rgba(18,18,18,.97); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--border); box-shadow:0 -6px 22px rgba(0,0,0,.45)}
+.sticky-cta .sc-text{display:flex; flex-direction:column; line-height:1.15; min-width:0}
+.sticky-cta .sc-lbl{font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+.sticky-cta .sc-bonus{font-size:14px; font-weight:800; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.sticky-cta .sc-bonus b{color:var(--accent)}
+.sticky-cta .sc-btn{flex:0 0 auto; margin-left:auto; padding:12px 28px; font-size:15px}
+@media (max-width:900px){
+  .sticky-cta{display:flex}
+  body{padding-bottom:72px}
+}
