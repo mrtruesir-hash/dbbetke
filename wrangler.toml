@@ -1,5 +1,9 @@
 name = "dbbetke"
+main = "src/index.js"
 compatibility_date = "2024-11-01"
 
 [assets]
 directory = "./public"
+binding = "ASSETS"
+# Static files are served first; the Worker (src/index.js) only runs for
+# routes with no matching file — e.g. /api/odds.
