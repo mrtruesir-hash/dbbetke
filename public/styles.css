@@ -252,3 +252,41 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
 /* brand image icons in nav tiles (replace emoji) */
 .tile .ic-img{font-size:0;line-height:0;margin-bottom:14px}
 .tile .ic-img img{display:block}
+
+/* ---- live odds widget ---- */
+.odds-tabs{display:inline-flex; gap:4px; padding:4px; background:var(--surface); border:1px solid var(--border); border-radius:999px; margin-bottom:18px}
+.odds-tab{appearance:none; border:0; background:transparent; color:var(--muted); font:inherit; font-weight:600; font-size:14px; padding:8px 20px; border-radius:999px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; transition:background .15s,color .15s}
+.odds-tab:hover{color:#fff}
+.odds-tab.is-active{background:var(--accent); color:#fff}
+.odds-tab .dot{width:7px; height:7px; border-radius:50%; background:currentColor; box-shadow:0 0 0 0 rgba(255,51,92,.6)}
+.odds-tab[data-feed="live"].is-active .dot{background:#fff; animation:oddsPulse 1.6s infinite}
+@keyframes oddsPulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}70%{box-shadow:0 0 0 7px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+
+.odds-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+.odds-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px 18px; display:flex; flex-direction:column; gap:12px}
+.odds-card .odds-top{display:flex; justify-content:space-between; align-items:center; gap:10px; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em}
+.odds-league{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.odds-when{flex:0 0 auto; font-weight:700}
+.odds-when.is-live{color:var(--accent); display:inline-flex; align-items:center; gap:6px}
+.odds-when.is-live::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--accent); animation:oddsPulse 1.6s infinite}
+.odds-teams{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px}
+.odds-team{font-weight:700; font-size:15px}
+.odds-team:last-child{text-align:right}
+.odds-vs{font-size:11px; color:var(--muted); text-transform:uppercase}
+.odds-markets{display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
+.odds-pick{display:flex; flex-direction:column; align-items:center; gap:2px; padding:9px 6px; background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; transition:border-color .15s,background .15s,transform .1s}
+.odds-pick:hover{border-color:var(--accent); background:#241016}
+.odds-pick:active{transform:translateY(1px)}
+.odds-pick .odds-lbl{font-size:11px; color:var(--muted); font-weight:700; letter-spacing:.06em}
+.odds-pick .odds-val{font-size:16px; font-weight:800; color:#fff; font-variant-numeric:tabular-nums}
+.odds-pick.is-empty{opacity:.45; pointer-events:none}
+
+.odds-card.is-skeleton{position:relative; overflow:hidden; min-height:132px}
+.odds-card.is-skeleton>*{opacity:0}
+.odds-card.is-skeleton::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg, transparent 20%, rgba(255,255,255,.04) 40%, transparent 60%); background-size:250% 100%; animation:oddsShimmer 1.3s infinite}
+@keyframes oddsShimmer{from{background-position:200% 0}to{background-position:-60% 0}}
+
+.odds-fallback{text-align:center; padding:26px; background:var(--surface); border:1px dashed var(--border-accent); border-radius:var(--radius-lg)}
+.odds-fallback p{color:var(--muted); margin-bottom:16px}
+.odds-updated{margin-top:14px; font-size:12px; color:var(--muted); text-align:right}
+@media (max-width:700px){ .odds-grid{grid-template-columns:1fr} }

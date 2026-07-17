@@ -54,11 +54,23 @@
   </div>
 </div></section>
 
-<!-- LIVE ODDS PLACEHOLDER -->
+<!-- LIVE ODDS WIDGET -->
 <section class="section tight"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Live</span><h2>Today's football &amp; live odds</h2><p>Live odds widget — to be powered by the official DBBet feed via a Cloudflare Worker.</p></div>
-  <div class="img-slot" style="min-height:220px"><span class="ico">📊</span><span class="t">Live odds widget</span><span class="d">API-powered (Cloudflare Worker) — coming</span></div>
+  <div class="section-head"><span class="eyebrow">Live</span><h2>Today's football &amp; live odds</h2><p>Live and upcoming matches with real odds from the DBBet feed. Tap any price to place your bet.</p></div>
+  <div id="odds-widget" class="odds-widget" data-endpoint="/api/odds" data-bet-link="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213">
+    <div class="odds-tabs" role="tablist">
+      <button class="odds-tab is-active" data-feed="live" type="button"><span class="dot"></span>Live</button>
+      <button class="odds-tab" data-feed="prematch" type="button">Upcoming</button>
+    </div>
+    <div class="odds-grid" data-state="loading" aria-live="polite"></div>
+    <div class="odds-fallback" hidden>
+      <p>No matches are in play right now — check the full live board on DBBet.</p>
+      <a class="btn btn-primary" href="https://refpa96317.com/L?tag=d_5376676m_11213c_&amp;site=5376676&amp;ad=11213&amp;r=live">See all live odds on DBBet</a>
+    </div>
+    <div class="odds-updated" hidden></div>
+  </div>
 </div></section>
+<script src="/odds.js" defer></script>
 
 <!-- SPORTS COVERED -->
 <section class="section tight"><div class="wrap">
