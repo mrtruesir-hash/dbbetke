@@ -156,7 +156,8 @@ header{position:sticky; top:0; z-index:50; background:rgba(18,18,18,.82); backdr
 /* bonus card slots */
 .bonus-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
 .bonus{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden}
-.bonus .shotimg{aspect-ratio:16/9; border:0; border-bottom:1px dashed var(--border-accent); border-radius:0}
+.bonus .shotimg{aspect-ratio:16/9; border:0; border-radius:0; display:block; width:100%; object-fit:cover}
+.bonus div.shotimg{border-bottom:1px dashed var(--border-accent)}
 .bonus .body{padding:18px 20px}
 .bonus h3{font-size:16px; margin-bottom:6px}
 .bonus p{color:var(--muted); font-size:13px; margin:0 0 14px}
