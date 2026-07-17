@@ -7,3 +7,10 @@ directory = "./public"
 binding = "ASSETS"
 # Static files are served first; the Worker (src/index.js) only runs for
 # routes with no matching file — e.g. /api/odds.
+
+# Non-secret config lives here so it survives every deploy. (Secrets —
+# MARKETING_CLIENT_ID / MARKETING_CLIENT_SECRET — stay in the dashboard.)
+[vars]
+MARKETING_REF = "5376676"
+MARKETING_LANG = "en"
+MARKETING_COUNT = "20"
