@@ -112,8 +112,11 @@ async function handleOdds(request, url, env, ctx) {
 
   let payload, status = 200;
   try {
-    // ?cid=<value> overrides the client_id for that request (credential testing).
-    const token = await getAccessToken(env, url.searchParams.get("cid"));
+    // ?directtoken=1 uses the stored secret directly as a Bearer token (some
+    // panels issue a ready API token instead of OAuth2 credentials).
+    const token = url.searchParams.get("directtoken") === "1"
+      ? env.MARKETING_CLIENT_SECRET
+      : await getAccessToken(env, url.searchParams.get("cid"));
 
     // Debug: /api/odds?raw=1&feed=live|prematch returns the upstream JSON verbatim.
     if (url.searchParams.get("raw") === "1") {
