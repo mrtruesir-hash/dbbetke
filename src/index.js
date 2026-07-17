@@ -98,6 +98,22 @@ async function getAccessToken(env) {
 /* ------------------------------ /api/odds ------------------------------ */
 
 async function handleOdds(request, url, env, ctx) {
+  // Safe diagnostic: reports which secret NAMES the Worker can see (no values).
+  // ref is not sensitive (it appears in public tracking links), so echo it.
+  if (url.searchParams.get("debug") === "keys") {
+    return jsonResponse({
+      sees: {
+        MARKETING_CLIENT_ID: !!env.MARKETING_CLIENT_ID,
+        MARKETING_CLIENT_SECRET: !!env.MARKETING_CLIENT_SECRET,
+        MARKETING_REF: !!env.MARKETING_REF,
+        MARKETING_GR: !!env.MARKETING_GR,
+        ASSETS: !!env.ASSETS,
+      },
+      refValue: env.MARKETING_REF || null,
+      allMarketingKeys: Object.keys(env).filter((k) => k.indexOf("MARKETING") === 0),
+    });
+  }
+
   // Serve from the edge cache when fresh (respects the upstream rate limit).
   const cache = caches.default;
   const cacheKey = new Request(new URL("/api/odds" + url.search, url.origin), { method: "GET" });
