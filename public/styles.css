@@ -2,6 +2,7 @@
 :root{
   --bg:#121212; --surface:#1a1a1a; --surface-2:#242424;
   --accent:#ff335c; --accent-hover:#ff4d72; --accent-soft:rgba(255,51,92,.14);
+  --accent-btn:#d92850; --accent-btn-hover:#c2213f;
   --text:#ffffff; --muted:#a3a3a3; --secondary:#2b2b2b; --secondary-hover:#383838;
   --border:rgba(255,255,255,.09); --border-accent:rgba(255,51,92,.35);
   --radius:12px; --radius-lg:18px; --maxw:1180px;
@@ -19,8 +20,8 @@ h1,h2,h3{margin:0; font-weight:800; line-height:1.1; text-wrap:balance}
 .center{text-align:center}
 
 .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; font-family:var(--font); font-weight:800; font-size:15px; letter-spacing:.01em; padding:14px 26px; border-radius:var(--radius); border:0; cursor:pointer; transition:transform .15s ease, background .15s ease; white-space:nowrap;}
-.btn-primary{background:var(--accent); color:#fff}
-.btn-primary:hover{background:var(--accent-hover); transform:translateY(-2px)}
+.btn-primary{background:var(--accent-btn); color:#fff}
+.btn-primary:hover{background:var(--accent-btn-hover); transform:translateY(-2px)}
 .btn-outline{background:transparent; color:#fff; box-shadow:inset 0 0 0 2px var(--accent)}
 .btn-outline:hover{background:var(--accent-soft)}
 .btn-ghost{background:var(--secondary); color:#fff}
