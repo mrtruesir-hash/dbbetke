@@ -9,7 +9,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet" media="print" onload="this.media=&#39;all&#39;">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/styles.css">
 <link rel="canonical" href="https://dbbetke.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -32,7 +34,7 @@
 
 <header>
   <div class="wrap nav">
-    <a href="/" class="logo" aria-label="DBBet Kenya home"><img src="/images/logo.svg" alt="DBBet" height="26" style="height:26px;width:auto;display:block"></a>
+    <a href="/" class="logo" aria-label="DBBet Kenya home"><img src="/images/logo.svg" alt="DBBet" width="152" height="26" style="height:26px;width:auto;display:block"></a>
     <nav class="nav-links">
       <a href="/how-to-start/">How to start</a>
       <a href="/bonuses/">Bonuses</a>
@@ -68,7 +70,7 @@
       </div>
     </div>
     <div class="hero-visual">
-      <img src="/images/brand/hero.webp" width="900" height="1125" alt="DBBet Kenya app — live sports betting and casino slots" fetchpriority="high" style="width:100%;height:100%;object-fit:contain;display:block">
+      <img src="/images/brand/hero.webp" srcset="/images/brand/hero-sm.webp 560w, /images/brand/hero.webp 900w" sizes="(max-width:900px) 100vw, 45vw" width="900" height="1125" alt="DBBet Kenya app — live sports betting and casino slots" fetchpriority="high" style="width:100%;height:100%;object-fit:contain;display:block">
     </div>
   </div>
 </section>
@@ -114,14 +116,14 @@
       <p>Premier League, La Liga, Champions League and local Kenyan football — plus live betting with fast odds, multibets, jackpots and cash out.</p>
       <a href="/betting/" class="btn btn-primary">Explore betting</a>
     </div>
-    <div class="spot-media" style="aspect-ratio:16/10;min-height:220px"><img src="/images/brand/sportsbook.webp" width="1000" height="625" loading="lazy" alt="DBBet Kenya sportsbook — live football odds and multibets" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+    <div class="spot-media" style="aspect-ratio:16/10;min-height:220px"><img src="/images/brand/sportsbook.webp" srcset="/images/brand/sportsbook-sm.webp 720w, /images/brand/sportsbook.webp 1000w" sizes="(max-width:900px) 100vw, 45vw" width="1000" height="625" loading="lazy" alt="DBBet Kenya sportsbook — live football odds and multibets" style="width:100%;height:100%;object-fit:contain;display:block"></div>
   </div>
 </div></section>
 
 <!-- CASINO TEASER -->
 <section class="section tight"><div class="wrap">
   <div class="spot">
-    <div class="spot-media" style="order:-1;aspect-ratio:16/10;min-height:220px"><img src="/images/brand/casino.webp" width="1000" height="625" loading="lazy" alt="DBBet Kenya casino — 500+ slots and live dealers" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+    <div class="spot-media" style="order:-1;aspect-ratio:16/10;min-height:220px"><img src="/images/brand/casino.webp" srcset="/images/brand/casino-sm.webp 720w, /images/brand/casino.webp 1000w" sizes="(max-width:900px) 100vw, 45vw" width="1000" height="625" loading="lazy" alt="DBBet Kenya casino — 500+ slots and live dealers" style="width:100%;height:100%;object-fit:contain;display:block"></div>
     <div>
       <span class="eyebrow">Casino &amp; slots</span>
       <h2>500+ slots &amp; live casino</h2>
@@ -164,7 +166,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="/" class="logo" style="font-size:23px"><img src="/images/logo.svg" alt="DBBet" height="24" style="height:24px;width:auto;display:block"></a>
+        <a href="/" class="logo" style="font-size:23px"><img src="/images/logo.svg" alt="DBBet" width="140" height="24" style="height:24px;width:auto;display:block"></a>
         <p class="muted" style="font-size:14px; margin-top:14px; max-width:32ch">DBBet Kenya — sports betting, casino and slots, built for mobile and M-Pesa.</p>
       </div>
       <div><h3>Play</h3><a href="/betting/">Betting</a><a href="/casino/">Casino</a><a href="/casino/#aviator">Aviator</a><a href="/bonuses/">Bonuses</a></div>
