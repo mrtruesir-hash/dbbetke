@@ -35,6 +35,12 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+    // Canonicalize www -> apex (avoids duplicate-content / dead-link issues).
+    if (url.hostname === "www.dbbetke.com") {
+      url.hostname = "dbbetke.com";
+      return Response.redirect(url.toString(), 301);
+    }
+
     if (url.pathname === "/api/odds") {
       return handleOdds(request, url, env, ctx);
     }
