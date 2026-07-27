@@ -15,4 +15,8 @@
   <url><loc>https://dbbetke.com/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://dbbetke.com/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://dbbetke.com/cookies/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dbbetke.com/authors/ray/</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dbbetke.com/blog/dbbet-login-problems/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dbbetke.com/blog/mpesa-deposit-not-reflecting/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dbbetke.com/blog/dbbet-withdrawal-not-received/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

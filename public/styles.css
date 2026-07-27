@@ -238,6 +238,13 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
   .casino-grid{grid-template-columns:repeat(2,1fr)}
   .logo-grid{grid-template-columns:repeat(3,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
+}
+/* Nav switches to the hamburger EARLIER than the layout breakpoint.
+   The desktop bar (logo + 5 links + 2 CTAs) needs ~956px; below that the
+   Register button gets pushed off-screen. Kept separate from the 900px
+   block on purpose — the responsive image sizes="(max-width:900px) ..."
+   attributes are tied to that breakpoint and must not move with it. */
+@media (max-width:980px){
   .nav-links{display:none}
   .nav-cta{display:none}
   .menu-toggle{display:flex}
@@ -331,3 +338,100 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
   .sticky-cta{display:flex}
   body{padding-bottom:72px}
 }
+
+/* ============================================================
+   BLOG / ARTICLE
+   Post cards on /blog/, and the article furniture a post needs:
+   byline, dates, author box, ToC, richer prose elements.
+   ============================================================ */
+
+/* ---- post cards (blog hub listing) ---- */
+.post-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px}
+.post-card{display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-lg); overflow:hidden; transition:border-color .15s ease, transform .15s ease}
+.post-card:hover{border-color:var(--border-accent); transform:translateY(-3px)}
+.post-card .thumb{aspect-ratio:16/9; background:var(--surface-2); overflow:hidden}
+.post-card .thumb img{width:100%; height:100%; object-fit:cover}
+.post-card .body{padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; gap:10px}
+.post-card h3{font-size:18px; line-height:1.25}
+.post-card:hover h3{color:var(--accent)}
+.post-card p{margin:0; color:var(--muted); font-size:14.5px; line-height:1.6}
+.post-card .post-meta{margin-top:auto; padding-top:4px}
+
+/* ---- category chip ---- */
+.chip{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--accent); background:var(--accent-soft); border:1px solid var(--border-accent);
+  border-radius:999px; padding:5px 11px; white-space:nowrap}
+.chip-row{display:flex; flex-wrap:wrap; gap:8px}
+a.chip:hover{background:var(--border-accent); color:#fff}
+
+/* ---- byline + post meta (article header) ---- */
+.post-meta{display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; font-size:13px; color:var(--muted)}
+.post-meta .sep{opacity:.4}
+.post-meta time{white-space:nowrap}
+.byline{display:flex; align-items:center; gap:11px; margin:18px 0 0}
+.byline .avatar{flex:0 0 auto; width:40px; height:40px; border-radius:50%; object-fit:cover;
+  background:var(--surface-2); border:1px solid var(--border)}
+.byline .who{display:flex; flex-direction:column; line-height:1.35; min-width:0}
+.byline .who .name{font-weight:700; font-size:14.5px}
+.byline .who .name a{color:inherit}
+.byline .who .name a:hover{color:var(--accent)}
+.byline .who .role{font-size:12.5px; color:var(--muted)}
+
+/* ---- author bio box (end of post — E-E-A-T) ---- */
+.author-box{display:flex; gap:16px; align-items:flex-start; background:var(--surface);
+  border:1px solid var(--border); border-radius:var(--radius-lg); padding:20px 22px; margin:36px 0 0}
+.author-box .avatar{flex:0 0 auto; width:56px; height:56px; border-radius:50%; object-fit:cover;
+  background:var(--surface-2); border:1px solid var(--border)}
+.author-box .bio{min-width:0}
+.author-box .bio h3{font-size:16px; margin:0 0 6px}
+.author-box .bio p{margin:0 0 8px; color:var(--muted); font-size:14px; line-height:1.6}
+.author-box .bio .links{display:flex; flex-wrap:wrap; gap:14px; font-size:13px}
+.author-box .bio .links a{color:var(--accent)}
+@media (max-width:520px){
+  .author-box{flex-direction:column; gap:12px}
+}
+
+/* ---- table of contents ---- */
+.toc{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:18px 20px; margin:0 0 28px}
+.toc h2{font-size:13px !important; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--muted); margin:0 0 12px !important}
+.toc ol{margin:0; padding-left:20px; color:var(--muted); font-size:14.5px}
+.toc li{margin:7px 0}
+.toc a{color:var(--text)}
+.toc a:hover{color:var(--accent)}
+
+/* ---- prose elements the article layout adds ---- */
+.prose h4{font-size:15.5px; font-weight:700; margin:22px 0 8px}
+.prose blockquote{margin:0 0 22px; padding:4px 0 4px 18px; border-left:3px solid var(--accent);
+  color:var(--text); font-size:16.5px; line-height:1.7}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose blockquote cite{display:block; margin-top:8px; font-size:13.5px; font-style:normal; color:var(--muted)}
+.prose figure{margin:0 0 24px}
+.prose figure img{border:1px solid var(--border); border-radius:var(--radius)}
+.prose figcaption{margin-top:9px; font-size:13px; color:var(--muted); line-height:1.55}
+.prose hr{border:0; border-top:1px solid var(--border); margin:32px 0}
+.prose code{background:var(--surface-2); border:1px solid var(--border); border-radius:5px;
+  padding:2px 6px; font-size:13.5px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* wide tables must scroll inside their own box, never the page */
+.prose .table-scroll{overflow-x:auto; margin:0 0 22px; -webkit-overflow-scrolling:touch}
+.prose .table-scroll table{width:100%; min-width:460px; border-collapse:collapse; font-size:14.5px}
+.prose .table-scroll th,.prose .table-scroll td{padding:11px 14px; text-align:left;
+  border-bottom:1px solid var(--border); color:var(--muted)}
+.prose .table-scroll th{color:var(--text); font-weight:700; font-size:13px;
+  letter-spacing:.04em; text-transform:uppercase; background:var(--surface)}
+.prose .table-scroll td b{color:var(--text)}
+.prose .table-scroll tbody tr:last-child td{border-bottom:0}
+.prose .table-scroll .num{font-variant-numeric:tabular-nums; white-space:nowrap}
+
+/* ---- "next read" / related posts ---- */
+.related{margin:36px 0 0}
+.related h2{font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--muted); margin:0 0 14px}
+.related ul{list-style:none; margin:0; padding:0}
+.related li{border-top:1px solid var(--border)}
+.related li:last-child{border-bottom:1px solid var(--border)}
+.related a{display:flex; align-items:center; gap:12px; padding:14px 0; font-weight:600; font-size:15px}
+.related a:hover{color:var(--accent)}
+.related a .arw{margin-left:auto; color:var(--accent); flex:0 0 auto}
