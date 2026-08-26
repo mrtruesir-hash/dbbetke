@@ -230,7 +230,7 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
 
 @media (max-width:900px){
   .hero-grid,.spot,.app{grid-template-columns:1fr}
-  .hero-visual{order:-1; aspect-ratio:16/10; min-height:260px}
+  .hero-visual{order:-1; aspect-ratio:16/10; min-height:340px}
   .cards-4,.cards-3,.tiles{grid-template-columns:repeat(2,1fr)}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}
