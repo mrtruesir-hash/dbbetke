@@ -229,8 +229,9 @@ footer{background:var(--surface); border-top:1px solid var(--border); padding:48
 .prose .notice .ph{color:var(--accent)}
 
 @media (max-width:900px){
-  .hero-grid,.spot,.app{grid-template-columns:1fr}
-  .hero-visual{order:-1; aspect-ratio:16/10; min-height:340px}
+  .hero-grid,.spot,.app{grid-template-columns:minmax(0,1fr)}
+  .hero-visual{order:-1; aspect-ratio:16/10; min-height:340px; width:100%}
+  .spot-media,.aviator-art{width:100%}
   .cards-4,.cards-3,.tiles{grid-template-columns:repeat(2,1fr)}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}
